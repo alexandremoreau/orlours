@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        #bg {
+            /* The image used */
+            background-image: url("https://cdn.pixabay.com/photo/2016/02/19/10/37/concert-1209323_960_720.jpg");
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <div class="jumbotron bg-transparent" id="bg">
+        <h1 class="display-4 text-primary text-center" style="font-family: 'Pirata One', cursive; font-size: xx-large">
+            ORLOURS candidate pour l'organisation du 135e anniversaire de la faluche
+        </h1>
+        <p class="lead text-black text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse lobortis lobortis libero, at consequat nunc dapibus id. Praesent vel nulla ante. Proin feugiat ac magna id congue. Nulla ullamcorper ante justo, nec molestie odio rhoncus eu. Morbi nisl metus, mollis in ornare eleifend, dapibus sit amet tellus. Sed auctor euismod lacus et mattis. Donec id augue magna. In varius in turpis nec cursus. Phasellus lobortis lacus nisl, sit amet posuere ante convallis auctor. Morbi tincidunt felis nisl, sit amet euismod elit placerat eget. Praesent dignissim, enim sit amet finibus volutpat, elit enim convallis tortor, et auctor sem arcu vel elit. Vivamus id suscipit risus, nec faucibus orci. Nullam nunc odio, mollis sed nibh ac, dignissim varius enim. Sed lacinia nulla ac facilisis porttitor. Nam vel sollicitudin odio. Curabitur condimentum lectus id odio mattis ullamcorper. Nulla accumsan iaculis nibh, eget pellentesque lorem vestibulum vel. Proin in posuere mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris suscipit ipsum non elit bibendum, in aliquet odio vehicula. In molestie id magna a commodo. </p>
+        <a class="btn btn-primary" href="{{ path("team") }}" role="button">Découvrir l'équipe</a>
+    </div>
+{% endblock %}

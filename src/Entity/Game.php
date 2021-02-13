@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\GameRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=GameRepository::class)
+ * @UniqueEntity("email", message="Cet email est déjà utilisé")
+ *
  */
 class Game
 {
@@ -19,11 +23,13 @@ class Game
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner votre prénom")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner votre nom")
      */
     private $lastname;
 
@@ -33,12 +39,17 @@ class Game
     private $nickname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
+     * @Assert\NotBlank(message="Veuillez renseigner votre email")
+     * @Assert\Email(
+     *     message = "'{{ value }}' n'est pas un email valide"
+     * )
      */
     private $email;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\IsTrue(message="Votre consentement à l'utilisation de vos données personnelles est requis pour participer à ce jeu concours")
      */
     private $data_consent;
 
@@ -49,8 +60,14 @@ class Game
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner votre réponse")
      */
     private $answer;
+
+    public function __construct()
+    {
+        $this->submittedAt = new \DateTime();
+    }
 
     public function getId(): ?int
     {

@@ -4,10 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Game;
 use App\Form\GameFormType;
+use App\Repository\GameRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class GameController extends AbstractController
 {
@@ -41,6 +44,21 @@ class GameController extends AbstractController
     public function answerSubmitted(Request $request): Response
     {
         return $this->render('game/answer_submitted.html.twig', [
+        ]);
+    }
+
+    /**
+     * @Route("/game/participants", name="participants")
+     * @IsGranted("ROLE_ADMIN")
+     * @param Request $request
+     * @param GameRepository $gameRepository
+     * @return Response
+     */
+    public function participants(Request $request, GameRepository $gameRepository): Response
+    {
+        $participants = $gameRepository->findAllByDateOfSubmissionASC();
+        return $this->render('game/participants.html.twig', [
+            'participants' => $participants
         ]);
     }
 }

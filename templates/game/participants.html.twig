@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des participants{% endblock %}
+
+{% block body %}
+    {% if participants %}
+        <div class="container-fluid">
+        <table class="table table-hover mt-5">
+            <thead>
+            <tr class="text-primary">
+                <th>Participant</th>
+                <th>Email</th>
+                <th>Réponse</th>
+                <th>Date de publication</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for participant in participants %}
+                <tr>
+                    <td>{{ participant.lastname }} {{ participant.firstname }}</td>
+                    <td>{{ participant.email }}</td>
+                    <td>{{ participant.answer }}</td>
+                    <td>{{ participant.submittedAt | date ("d/m/Y à h:i:s")}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {% endif %}
+{% endblock %}

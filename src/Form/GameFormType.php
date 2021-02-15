@@ -46,7 +46,7 @@ class GameFormType extends AbstractType
                     'placeholder' => 'Votre réponse'
                 ]
             ])
-            ->add('data_consent', CheckboxType::class, [
+            ->add('dataConsent', CheckboxType::class, [
                 'label' => 'Consentement à l\'utilisation des données',
                 'help' => 'En cochant cette case, vous acceptez de transmettre vos données aux membres ....'
             ])

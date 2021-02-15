@@ -51,7 +51,7 @@ class Game
      * @ORM\Column(type="boolean")
      * @Assert\IsTrue(message="Votre consentement à l'utilisation de vos données personnelles est requis pour participer à ce jeu concours")
      */
-    private $data_consent;
+    private $dataConsent;
 
     /**
      * @ORM\Column(type="datetime")
@@ -124,12 +124,12 @@ class Game
 
     public function getDataConsent(): ?bool
     {
-        return $this->data_consent;
+        return $this->dataConsent;
     }
 
-    public function setDataConsent(bool $data_consent): self
+    public function setDataConsent(bool $dataConsent): self
     {
-        $this->data_consent = $data_consent;
+        $this->dataConsent = $dataConsent;
 
         return $this;
     }

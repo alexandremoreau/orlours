@@ -1,27 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/simplex/bootstrap.min.css" integrity="sha384-FYrl2Nk72fpV6+l3Bymt1zZhnQFK75ipDqPXK0sOR0f/zeOSZ45/tKlsKucQyjSp" crossorigin="anonymous">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('asset/css/main.css') }}" />
+        <link rel="stylesheet" href="{{ asset('asset/css/mobile.css') }}" />
         <link rel="icon" type="image/png" href="{{ asset('asset/images/logo_refonte.png' ) }}" />
-        {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-    {% include '_navbar.html.twig' %}
-        {% block body %}{% endblock %}
-    {% include '_footer.html.twig' %}
-    <script src=
-            "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-    </script>
-    <script src=
-            "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js">
-    </script>
-    <script src=
-            "https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js">
-    </script>
+    <div id="main">
+        <div class="header">
+        {% include '_navbar.html.twig' %}
+
+        {% block body %}
+        {% endblock %}
+{#    {% include '_footer.html.twig' %}#}
+        </div>
+    </div>
     {% block javascripts %}{% endblock %}
     </body>
 </html>

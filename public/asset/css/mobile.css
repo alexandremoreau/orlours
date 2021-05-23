@@ -209,7 +209,6 @@
     .card {
         width:100%;
         float:left;
-        /*background-color: #CED3DC;*/
     }
 
     .card img {
@@ -217,4 +216,5 @@
         margin:1%;
         float: left;
     }
+
 }

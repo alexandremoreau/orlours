@@ -217,4 +217,11 @@
         float: left;
     }
 
+    aside {
+
+    }
+
+    section#game {
+       margin-top:400px;
+    }
 }

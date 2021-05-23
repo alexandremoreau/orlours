@@ -12,11 +12,17 @@
         <div class="game-form-input">{{ form_row(form.email) }}</div>
         <div class="game-form-input">{{ form_row(form.answer) }}</div>
         <div class="game-form-input">{{ form_row(form.dataConsent) }}</div>
-        <button type="submit" class="btn btn-outline-success text-uppercase">{{ button_label|default('enregister') }}</button>
+        <button type="submit" class="button button-success">{{ button_label|default('Envoyer ta réponse') }}</button>
         {{ form_end(form) }}
 
+        <aside>
+        {% if answer == true %}
+            <img src="{{ asset('asset/images/bob.jpg' ) }}" alt="erreur-404">
+            {%  else %}
+            <img src="{{ asset('asset/images/chateau.png' ) }}" alt="chateau">
+        </aside>
+
+        {% endif %}
     </section>
-    {% if answer == true %}
-        <div>ça marche</div>
-    {% endif %}
+
 {% endblock %}

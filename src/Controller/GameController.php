@@ -21,18 +21,23 @@ class GameController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $game = new Game();
+        $answer = false;
         $form = $this->createForm(GameFormType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() AND $form->isValid()){
+            $game = new Game();
             $game = $form->getData();
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($game);
-            $entityManager->flush();
-            return $this->redirectToRoute('answer_submitted');
+            if ($game->getAnswer() == 'Amboise' ||$game->getAnswer() == 'amboise') {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($game);
+                $entityManager->flush();
+                return $this->redirectToRoute('answer_submitted');
+            } else {
+                $answer = true;
+            }
         }
         return $this->render('game/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(), 'answer' => $answer
         ]);
     }
 

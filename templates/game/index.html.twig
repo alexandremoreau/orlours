@@ -3,41 +3,26 @@
 {% block title %}Jeu concours{% endblock %}
 
 {% block body %}
-    <div class="container my-5">
+    <section id="game">
         {{ form_start(form) }}
-        <div class="row justify-content-center">
-            <div class="col-10 col-md-8 col-lg-6">
-                {{ form_row(form.lastname) }}
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-10 col-md-8 col-lg-6">
-                {{ form_row(form.firstname) }}
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-10 col-md-8 col-lg-6">
-                {{ form_row(form.nickname) }}
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-10 col-md-8 col-lg-6">
-                {{ form_row(form.email) }}
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-10 col-md-8 col-lg-6">
-                {{ form_row(form.answer) }}
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-10 col-md-8 col-lg-6">
-                {{ form_row(form.dataConsent) }}
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <button type="submit" class="btn btn-outline-success text-uppercase">{{ button_label|default('enregister') }}</button>
-        </div>
+        <h1>Jeu concours</h1>
+        <div class="game-form-input">{{ form_row(form.lastname) }}</div>
+        <div class="game-form-input">{{ form_row(form.firstname) }}</div>
+        <div class="game-form-input">{{ form_row(form.nickname) }}</div>
+        <div class="game-form-input">{{ form_row(form.email) }}</div>
+        <div class="game-form-input">{{ form_row(form.answer) }}</div>
+        <div class="game-form-input">{{ form_row(form.dataConsent) }}</div>
+        <button type="submit" class="button button-success">{{ button_label|default('Envoyer ta réponse') }}</button>
         {{ form_end(form) }}
-    </div>
+
+        <aside>
+        {% if answer == true %}
+            <img src="{{ asset('asset/images/bob.png' ) }}" alt="erreur-404">
+            {%  else %}
+            <img src="{{ asset('asset/images/chateau.png' ) }}" alt="chateau">
+        </aside>
+
+        {% endif %}
+    </section>
+
 {% endblock %}

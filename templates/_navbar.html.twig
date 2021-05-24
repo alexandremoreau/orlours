@@ -1,24 +1,13 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link text-primary font-weight-bold" href={{ path('team') }}>Equipe</a>
-            </li>
+<div class="head flex">
+    <a class="logo" href="{{ path('home') }}"><img src="{{ asset('asset/images/logotype.png' ) }}" alt="logo-orlours" title="Logo Orlours 135" /></a>
+    <nav>
+        <ul>
+            <li><a href="{{ path('team') }}">Equipe</a></li>
+            <li><a href="{{ path('game') }}" >Jeu concours</a></li>
+{#            <li><a href="{{ path('home') }}">Orléans</a></li>#}
+{#            <li><a href="{{ path('home') }}">Tours</a></li>#}
         </ul>
-    </div>
-    <div class="mx-5 order-0 mt-0 order-md-1">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="mx-auto navbar-brand text-primary font-weight-bold" style="font-family: 'Pirata One', cursive; font-size: xx-large" href={{ path('home') }}>
-            ORLOURS 135
-        </a>
-    </div>
-    <div class="navbar-collapse collapse w-100 order-2 dual-collapse2 order-md-2">
-{#        <ul class="navbar-nav mr-auto">#}
-{#            <li class="nav-item">#}
-{#                <a class="nav-link text-primary font-weight-bold" href={{ path('game') }}>Jeu concours</a>#}
-{#            </li>#}
-{#        </ul>#}
-    </div>
-</nav>
+    </nav>
+</div>
+
+{#TODO -> barre mobile#}

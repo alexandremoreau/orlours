@@ -1,32 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Orlours 135 : ville candidate {% endblock %}
-{% block stylesheets %}{% endblock %}
 {% block body %}
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-        }
+    <figure id="figure-homepage">
+        <img src="{{ asset('asset/images/homepage/main-image.png') }}" alt="photo-orléans" />
+        <figcaption>
+            <h1>Orlours 135</h1>
+            <h2>Orléans et Tours s’allient sous la bannière d’ORLOURS 135 pour candidater au 135ème anniversaire ! </h2>
+            <p class="button"><a href="{{ path('team') }}">Découvrir l'équipe</a></p>
+            <p class="button"><a href="{{ path('game') }}">Participer au jeu concours</a></p>
+        </figcaption>
+    </figure>
 
-        #bg {
-            /* The image used */
-            background-image: url("https://cdn.pixabay.com/photo/2016/02/19/10/37/concert-1209323_960_720.jpg");
-
-            /* Full height */
-            height: 100%;
-
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-    </style>
-    <div class="jumbotron bg-transparent" id="bg">
-        <h1 class="display-4 text-primary text-center" style="font-family: 'Pirata One', cursive; font-size: xx-large">
-            ORLOURS candidate pour l'organisation du 135ème anniversaire de la faluche
-        </h1>
-        <p class="lead text-black text-justify">Nous sommes impatient de vous présenter le projet au <a href ="https://troyes133.com" target="_blank">Troyes 133</a>
-        </p><a class="btn btn-primary" href="{{ path("team") }}" role="button">Découvrir l'équipe</a>
-    </div>
 {% endblock %}

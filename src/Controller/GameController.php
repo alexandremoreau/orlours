@@ -29,7 +29,15 @@ class GameController extends AbstractController
             "chateaux d'amboise",
             "châteaux d'amboise",
             "chateaux amboise",
-            "châteaux amboise"
+            "châteaux amboise",
+            "le chateau d'amboise",
+            "le château d'amboise",
+            "le chateau amboise",
+            "le château amboise",
+            "le chateaux d'amboise",
+            "le châteaux d'amboise",
+            "le chateaux amboise",
+            "le châteaux amboise"
         ];
 
         $answer = false;

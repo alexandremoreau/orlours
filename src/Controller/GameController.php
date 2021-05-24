@@ -21,13 +21,24 @@ class GameController extends AbstractController
      */
     public function index(Request $request): Response
     {
+        $answers = [
+            "chateau d'amboise",
+            "château d'amboise",
+            "chateau amboise",
+            "château amboise",
+            "chateaux d'amboise",
+            "châteaux d'amboise",
+            "chateaux amboise",
+            "châteaux amboise"
+        ];
+
         $answer = false;
         $form = $this->createForm(GameFormType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() AND $form->isValid()){
             $game = new Game();
             $game = $form->getData();
-            if ($game->getAnswer() == 'Amboise' ||$game->getAnswer() == 'amboise') {
+            if (in_array(strtolower($game->getAnswer()), $answers)) {
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($game);
                 $entityManager->flush();

@@ -19,33 +19,9 @@
         margin: 0 0 20px;
     }
 
-    h1, h2, #revendications .quote, #tiny section h2, #tiny h2 {
-        text-align: left;
-        font-size: 29px !important;
-        line-height: 32px !important;
-        position: relative;
-        font-weight: 800;
-    }
-
-    h2, #about h2, .home_left h2, #home_news h2, #webinar h2 {
-        font-size: 24px;
-        line-height: 28px;
-        margin-bottom: 6px !important;
-        font-weight: 700;
-        text-align: center;
-        z-index: inherit !important;
-    }
-
-    h3 {
-        width: 100%;
-        margin: 10px 0 40px !important;
-    }
-
-    h3, p, ul li, #about p, #about .links a, #talk #programme ul li, .testimonials-content p, div#main figure figcaption p, .homepagec p, .cta p, #webinar .cta p span, #tiny p, #tiny ul li, #tiny .chiffres, #tiny main .flex li, #tiny .flex li a {
-        text-align: left !important;
-        font-size: 15px;
-        line-height: 22px;
-        margin: 0 0 24px 0;
+    h1 {
+        color: #A31621;
+        font-size: 1.8em;
     }
 
     p strong, p span {
@@ -204,7 +180,6 @@
     }
 
     .wrapper {
-        margin-top:100px;
         width:100%;
         float: left;
     }
@@ -222,5 +197,15 @@
     aside img {
         width:100%;
         margin:3% 1% 0 0;
+    }
+
+    #victory {
+        width:100%;
+        float:left;
+        background-color: #A31621;
+    }
+
+    #victory img {
+        width:100%;
     }
 }

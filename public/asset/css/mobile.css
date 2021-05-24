@@ -88,9 +88,9 @@
     }
 
     .head {
-        position: fixed;
         background: #A31621;
         width: 100%;
+        height:100px;
         padding: 10px 0 0 0;
         z-index: 100;
     }
@@ -116,8 +116,11 @@
         color: #000000;
     }
 
-    div#main .button {
-        display: none;
+    div#main .button a {
+        margin:30px auto;
+        width: 80%;
+        background-color: #A31621;
+
     }
 
     div#main {
@@ -127,7 +130,6 @@
     div#main figure img {
         width: 100%;
         position: inherit;
-        padding: 93px 0 0 0;
     }
 
     #figure-homepage figcaption {
@@ -217,11 +219,11 @@
         float: left;
     }
 
-    aside {
-
+    aside img {
+        width:98%;
+        margin:3% 1% 0 0;
     }
 
     section#game {
-       margin-top:400px;
     }
 }

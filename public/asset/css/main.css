@@ -115,6 +115,59 @@ button {
 .card-text {
     padding:5px;
 }
+section#house-game {
+
+}
+
+section#house-game h2{
+    color: #000000;
+    font-size: 2em;
+    font-family: 'Oswald', sans-serif;
+}
+.yellow {
+    background-color:darkgoldenrod;
+}
+.red {
+    background-color:#A31621;
+}
+.blue {
+    background-color: #4E8098;
+}
+.green {
+    background-color:mediumseagreen;
+}
+div#cadre {
+    width:100%;
+    max-width:1200px;
+    background-color: #FCF7F8;
+    height:550px;
+}
+.button-game {
+    float:left;
+    width:94%;
+    padding:2%;
+    margin: 1%;
+    color: #FCF7F8;
+    text-align: center;
+    font-size: 1.6em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+div.button-game:hover {
+    background-color: #3e3f46;
+    cursor: pointer;
+}
+
+img.discover {
+    width:80%;
+    margin:auto;
+    max-width:400px;
+}
+
+.house {
+    color:#FFFFFF;
+}
 
 @media screen and (min-width: 1401px) {
     .wrapper {

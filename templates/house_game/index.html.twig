@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jeu des maisons{% endblock %}
+
+{% block body %}
+    <script src = "https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            let answers = [];
+            let page = 2;
+            $(".button").on("click", function(){
+                answers.push($(this).attr('id'));
+                if (answers.length >= 15) {
+                    let house = findHouse(compare(foo(answers)));
+                    $('#cadre').html('<a href="housegame/result/'+ house + '">Voir les résultats</a>');
+                } else {
+                    let data = {request : answers};
+                    $.ajax({
+                        url:        'housegame/ajax/' + page,
+                        type:       'POST',
+                        dataType:   'json',
+                        async:      true,
+                        data: data,
+
+                        success: function(data) {
+                            $('#a').html(data['answera']);
+                            $('#b').html(data['answerb']);
+                            $('#c').html(data['answerc']);
+                            $('#d').html(data['answerd']);
+                            $('#question').html(data['question'])
+                            page++;
+                        },
+                        error : function(xhr, textStatus, throwError) {
+                            console.log('Requete échoué'+ throwError)
+                        },
+                        complete : function() {
+                        }
+                    });
+                }
+
+            });
+        });
+        function foo(arr) { let a = [], b = [], prev; arr.sort(); for ( let i = 0; i < arr.length; i++ ) { if ( arr[i] !== prev ) { a.push(arr[i]); b.push(1); } else { b[b.length-1]++; } prev = arr[i]; } return [a, b]; }
+        function compare (arr) {
+            let maxValue = Math.max.apply(this, arr[1]);
+            let key = $.inArray(maxValue,arr[1]);
+            return  arr[0][key];
+        }
+        function findHouse(key) {
+            switch (key) {
+                case 'a'    : return 'Groquetard';
+                case 'b'    : return 'truc2';
+                case 'c'    : return 'truc3';
+                case 'd'    : return 'truc4';
+                default     : return 'Belfortain';
+            }
+        }
+    </script>
+    <h1>Jeu des maisons</h1>
+
+    <div id="cadre">
+        <h2 id="question">{{ gameHouse.question }}</h2>
+
+        <button id="a" class="button">{{ gameHouse.answera }}</button>
+        <button id="b" class="button">{{ gameHouse.answerb }}</button>
+        <button id="c" class="button">{{ gameHouse.answerc }}</button>
+        <button id="d" class="button">{{ gameHouse.answerd }}</button>
+    </div>
+
+{% endblock %}

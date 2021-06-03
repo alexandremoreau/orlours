@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\GameHouse;
+use App\Entity\House;
 use App\Repository\GameHouseRepository;
 use App\Repository\GameRepository;
+use App\Repository\HouseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -49,13 +51,14 @@ class HouseGameController extends AbstractController
 
     }
     /**
-     * @Route("/housegame/result/{house}", name="house")
+     * @Route("/housegame/result/{houseName}", name="house")
      * @return JsonResponse|Response
      */
-    public function result(string $house) {
-        // TODO => call bdd
+    public function result(string $houseName, HouseRepository $houseRepository) {
+        $house = new House();
+        $house = $houseRepository->findOneBy(['name' => $houseName]);
         return $this->render('house_game/result.html.twig', [
-            'house' => ['name' => $house, 'description' => 'voila']
+            'house' => $house
         ]);
     }
 

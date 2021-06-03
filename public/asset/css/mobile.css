@@ -208,4 +208,18 @@
     #victory img {
         width:100%;
     }
+    div.button-game {
+        padding-top:20px;
+        height:60px;
+    }
+    div#cadre {
+        width:100%;
+        float:left;
+    }
+
+    div#cadre img {
+        width:100%;
+        float: left;
+        background-color: #A31621;
+    }
 }

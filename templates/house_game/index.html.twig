@@ -8,11 +8,17 @@
         $(document).ready(function(){
             let answers = [];
             let page = 2;
-            $(".button").on("click", function(){
+            $(".button-game").on("click", function(){
                 answers.push($(this).attr('id'));
                 if (answers.length >= 15) {
                     let house = findHouse(compare(foo(answers)));
-                    $('#cadre').html('<a href="housegame/result/'+ house + '">Voir les résultats</a>');
+                    $('#cadre').html(
+                        '<a href="housegame/result/'+ house + '"><img id="blason" src="{{ asset('asset/images/housegame/blason_final.png' ) }}" alt="blason_all_houses"></a>' +
+                        '<a id="discover" href="housegame/result/'+ house + '">Découvre ta maison</a>'
+                    );
+                    $('#blason').add(".discover");
+                    $('#discover').addClass("button-game yellow");
+
                 } else {
                     let data = {request : answers};
                     $.ajax({
@@ -23,6 +29,7 @@
                         data: data,
 
                         success: function(data) {
+                            // TODO : mélange
                             $('#a').html(data['answera']);
                             $('#b').html(data['answerb']);
                             $('#c').html(data['answerc']);
@@ -48,23 +55,26 @@
         }
         function findHouse(key) {
             switch (key) {
-                case 'a'    : return 'Groquetard';
-                case 'b'    : return 'truc2';
-                case 'c'    : return 'truc3';
-                case 'd'    : return 'truc4';
+                case 'a'    : return 'grosqueutards';
+                case 'b'    : return 'cracrador';
+                case 'c'    : return 'cognoseres';
+                case 'd'    : return 'castasouffles';
                 default     : return 'Belfortain';
             }
         }
     </script>
+    <section id="house-game">
     <h1>Jeu des maisons</h1>
 
     <div id="cadre">
         <h2 id="question">{{ gameHouse.question }}</h2>
 
-        <button id="a" class="button">{{ gameHouse.answera }}</button>
-        <button id="b" class="button">{{ gameHouse.answerb }}</button>
-        <button id="c" class="button">{{ gameHouse.answerc }}</button>
-        <button id="d" class="button">{{ gameHouse.answerd }}</button>
+        <div id="a" class="button-game yellow">{{ gameHouse.answera }}</div>
+        <div id="b" class="button-game blue">{{ gameHouse.answerb }}</div>
+        <div id="c" class="button-game red">{{ gameHouse.answerc }}</div>
+        <div id="d" class="button-game green">{{ gameHouse.answerd }}</div>
+
     </div>
+    </section>
 
 {% endblock %}

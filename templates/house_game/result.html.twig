@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jeu concours{% endblock %}
+
+{% block body %}
+<section id="result" class="{{ house.name }}">
+    <div id="maison">
+        <img class="discover" src="/asset/images/housegame/blasont_{{ house.name }}.png" alt="logo_{{ house.name }}">
+    </div>
+    <div id="description">
+        <p class="house">{{ house.description }}</p>
+    </div>
+</section>
+    <section id="blasons" class="{{ house.name }}">
+        <a href="cracrador">
+            <img id="" class="house-blason" src="{{ asset('/asset/images/housegame/blason_cracrador.png')}}" alt="blason_cracrador">
+        </a>
+        <a href="cognoseres">
+        <img id="" class="house-blason" src="{{ asset('/asset/images/housegame/blason_cognoseres.png')}}" alt="blason_cognoseres">
+        </a>
+        <a href="castasouffles">
+            <img id="" class="house-blason" src="{{ asset('/asset/images/housegame/blason_castasouffles.png')}}" alt="blason_castasouffles">
+        </a>
+        <a href="grosqueutards">
+            <img id="" class="house-blason" src="{{ asset('/asset/images/housegame/blason_grosqueutards.png')}}" alt="blason_groqueutards">
+        </a>
+    </section>
+{% endblock %}

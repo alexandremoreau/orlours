@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\GameHouse;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -29,6 +30,20 @@ class GameHouseRepository extends ServiceEntityRepository
                 ->getQuery()
                 ->getOneOrNullResult();
         } catch (NonUniqueResultException $e) {
+            return null;
         }
     }
+
+    public function countQuestion() {
+        $entityManager = $this->getEntityManager();
+        try {
+            return $entityManager
+                ->createQuery('SELECT COUNT(a.id) FROM App\Entity\GameHouse a')
+                ->getSingleScalarResult();
+        } catch (NoResultException $e) {
+        } catch (NonUniqueResultException $e) {
+            return null;
+        }
+    }
+
 }

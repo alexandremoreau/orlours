@@ -20,16 +20,21 @@ class HouseGameController extends AbstractController
      */
     public function index(GameHouseRepository $gameHouseRepository): Response
     {
+        $nbQuestion = $gameHouseRepository->countQuestion();
         $gameHouse = $gameHouseRepository->findOneById(1);
 
         return $this->render('house_game/index.html.twig', [
             'controller_name' => 'HouseGameController',
-            'gameHouse' => $gameHouse
+            'gameHouse' => $gameHouse,
+            'nbQuestion' => $nbQuestion
         ]);
     }
 
     /**
      * @Route("/housegame/ajax/{page}", requirements={"page"="\d+"})
+     * @param Request $request
+     * @param GameHouseRepository $gameHouseRepository
+     * @param int $page
      * @return JsonResponse|Response
      */
     public function ajaxCallForQuestion(Request $request, GameHouseRepository $gameHouseRepository, int $page) {
@@ -50,8 +55,11 @@ class HouseGameController extends AbstractController
         }
 
     }
+
     /**
      * @Route("/housegame/result/{houseName}", name="house")
+     * @param string $houseName
+     * @param HouseRepository $houseRepository
      * @return JsonResponse|Response
      */
     public function result(string $houseName, HouseRepository $houseRepository) {

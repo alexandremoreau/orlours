@@ -10,7 +10,7 @@
             let page = 2;
             $(".button-game").on("click", function(){
                 answers.push($(this).attr('id'));
-                if (answers.length >= 2) { // {{ nbQuestion }}
+                if (answers.length >= {{ nbQuestion }}) {
                     let house = findHouse(compare(foo(answers)));
                     $('#cadre').html(
                         '<section id="result">' +
@@ -35,7 +35,6 @@
                         data: data,
 
                         success: function(data) {
-                            // TODO : mélange
                             $('#a').html(data['answera']);
                             $('#b').html(data['answerb']);
                             $('#c').html(data['answerc']);
@@ -75,10 +74,13 @@
         <div id="cadre">
             <h2 id="question">{{ gameHouse.question }}</h2>
 
-            <div id="a" class="button-game yellow">{{ gameHouse.answera }}</div>
-            <div id="b" class="button-game blue">{{ gameHouse.answerb }}</div>
-            <div id="c" class="button-game red">{{ gameHouse.answerc }}</div>
-            <div id="d" class="button-game green">{{ gameHouse.answerd }}</div>
+            <div id="answers">
+                <div id="a" class="button-game yellow">{{ gameHouse.answera }}</div>
+                <div id="b" class="button-game blue">{{ gameHouse.answerb }}</div>
+                <div id="c" class="button-game red">{{ gameHouse.answerc }}</div>
+                <div id="d" class="button-game green">{{ gameHouse.answerd }}</div>
+            </div>
+
 
         </div>
     </section>

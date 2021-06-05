@@ -157,15 +157,6 @@
         height: 32px;
     }
 
-    /* HOMEPAGE */
-    /*.homepagec h2 {*/
-    /*    font-size: 32px !important;*/
-    /*    line-height: 32px !important;*/
-    /*    font-weight: 700;*/
-    /*    margin-bottom: 12px;*/
-    /*    color: #c99c48;*/
-    /*}*/
-
     #figure-homepage span {
         font-size: 15px;
         color: #A31621;
@@ -202,15 +193,10 @@
     #victory {
         width:100%;
         float:left;
-        background-color: #A31621;
     }
 
     #victory img {
         width:100%;
-    }
-    div.button-game {
-        padding-top:20px;
-        height:60px;
     }
     div#cadre {
         width:100%;
@@ -220,6 +206,14 @@
     div#cadre img {
         width:100%;
         float: left;
-        background-color: #A31621;
+    }
+
+    section#blasons {
+        width:100%;
+        float:left;
+    }
+    #result img {
+        margin:auto;
+        width:100%;
     }
 }

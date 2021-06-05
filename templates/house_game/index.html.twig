@@ -10,11 +10,17 @@
             let page = 2;
             $(".button-game").on("click", function(){
                 answers.push($(this).attr('id'));
-                if (answers.length >= 15) {
+                if (answers.length >= 2) { // {{ nbQuestion }}
                     let house = findHouse(compare(foo(answers)));
                     $('#cadre').html(
-                        '<a href="housegame/result/'+ house + '"><img id="blason" src="{{ asset('asset/images/housegame/blason_final.png' ) }}" alt="blason_all_houses"></a>' +
-                        '<a id="discover" href="housegame/result/'+ house + '">Découvre ta maison</a>'
+                        '<section id="result">' +
+                        '<div id="maison">' +
+                        '<a href="housegame/result/'+ house + '"><img class="discover" src="{{ asset('asset/images/housegame/blason_final.png' ) }}" alt="blason_all_houses"></a>' +
+                        '</div>' +
+                        '<div id="description">'    +
+                        '<a id="discover" href="housegame/result/'+ house + '">Découvre ta maison</a>' +
+                        '</div>' +
+                        '</section>'
                     );
                     $('#blason').add(".discover");
                     $('#discover').addClass("button-game yellow");
@@ -64,17 +70,17 @@
         }
     </script>
     <section id="house-game">
-    <h1>Jeu des maisons</h1>
+        <h1>Jeu des maisons</h1>
 
-    <div id="cadre">
-        <h2 id="question">{{ gameHouse.question }}</h2>
+        <div id="cadre">
+            <h2 id="question">{{ gameHouse.question }}</h2>
 
-        <div id="a" class="button-game yellow">{{ gameHouse.answera }}</div>
-        <div id="b" class="button-game blue">{{ gameHouse.answerb }}</div>
-        <div id="c" class="button-game red">{{ gameHouse.answerc }}</div>
-        <div id="d" class="button-game green">{{ gameHouse.answerd }}</div>
+            <div id="a" class="button-game yellow">{{ gameHouse.answera }}</div>
+            <div id="b" class="button-game blue">{{ gameHouse.answerb }}</div>
+            <div id="c" class="button-game red">{{ gameHouse.answerc }}</div>
+            <div id="d" class="button-game green">{{ gameHouse.answerd }}</div>
 
-    </div>
+        </div>
     </section>
 
 {% endblock %}

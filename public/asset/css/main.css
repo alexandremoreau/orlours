@@ -111,9 +111,6 @@ button {
 .card-text {
     padding:5px;
 }
-section#house-game {
-
-}
 
 section#house-game h2{
     color: #000000;
@@ -163,6 +160,9 @@ img.discover {
 .house {
     color:#FFFFFF;
     padding:2%;
+    font-family: 'Oswald', sans-serif ;
+    font-size: 2.2em;
+    line-height: 1.5em;
 }
 
 #houses {
@@ -170,8 +170,10 @@ img.discover {
     width:100%;
 }
 .house-blason {
+    padding-top:20px;
     width:24%;
 }
+
 
 @media screen and (min-width: 1001px) {
     section#blasons {
